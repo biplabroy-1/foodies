@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy It</title>
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="hero">
+            <nav class="px-24 h-28 w-full flex items-center justify-between bg-slate-600">
+                <h1 class="text-3xl font-bold">Buy<span class="text-lime-500">It</span></h1>
+                <div class="flex items-center justify-center font-medium gap-5 text-lg">
+                    <div class="relative">
+                        <input type="text" class="input h-12 py-2 pl-2 pr-12 rounded-md focus:outline-none"
+                            id="typed-placeholder" placeholder="Search Here..." autocomplete="off">
+                        <button type="submit"
+                            class="grid place-items-center absolute h-12 w-12 right-0 top-1/2 border-l-2 px-2  -translate-y-1/2 "><ion-icon
+                                class="text-xl" name="search-outline"></ion-icon></button>
+                    </div>
+
+                    <a class="px-4 py-2" href="">Home</a>
+                    <a class="px-4 py-2" href="">Orders</a>
+                    <a class="px-4 py-2" href="">Login</a>
+                    <a class="px-4 py-2 rounded-lg bg-lime-500" href="">Cart</a>
+                </div>
+            </nav>
+            <div class="greets"></div>
+            <div class="main">
+                <form id="productForm" action="/buyit/addToCart/" method="post">
+                    <section class="w-96 mx-auto my-8 p-8 rounded-md shadow-md bg-white">
+                        <img class="rounded-md"
+                            src="https://neurosciencenews.com/files/2023/06/coffee-brain-caffeine-neuroscincces.jpg.webp"
+                            alt="Product Image" id="prodImage" />
+                        <h2 class="font-semibold text-2xl mt-6">Coffee</h4>
+                            <p id="prodDesc">Description here...</p>
+
+                            <label for="quantityInput"
+                                class="mt-6 block text-sm font-medium text-gray-700">Quantity</label>
+                            <label for="quantity" class="block mt-6">Quantity</label>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
