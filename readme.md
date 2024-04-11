@@ -25,6 +25,9 @@ College Eats is an online food ordering platform designed specifically for colle
 ## Installation
 
 1. Clone ```git clone https://github.com/biplabroy-1/foodies.git```
+  - ```python
+     git clone https://github.com/Kshatriya770/Grocery-Store.git
+    ```
 2. Install dependencies using `npm install`.
 3. Start the server using `npm start`.
 
