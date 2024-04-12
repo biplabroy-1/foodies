@@ -1,32 +1,36 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const auth = require('./config/auth');
+const userRoutes = require('./routes/userRoutes');
+const restaurantRoutes = require('./routes/restaurantRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const User = require('../models/user.models.js');
+
+require('dotenv').config();
 
 const app = express();
-
-// Load environment variables from .env file if present
-require('dotenv').config();
 
 // Middleware
 app.use(express.json());
 
 // Connect to MongoDB database
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+})
 .then(() => {
     console.log('Connected to MongoDB');
 })
 .catch((err) => {
     console.error('Error connecting to MongoDB:', err.message);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
 });
 
-// Define routes
-const userRoutes = require('./routes/userRoutes.js');
-const restaurantRoutes = require('./routes/restaurantRoutes.js');
-const orderRoutes = require('./routes/orderRoutes.js');
-
-app.use('/api/users', userRoutes);
-app.use('/api/restaurants', restaurantRoutes);
-app.use('/api/orders', orderRoutes);
+// Routes
+// app.use('/api/users', userRoutes);
+// app.use('/api/restaurants', auth.verifyToken, restaurantRoutes);
+// app.use('/api/orders', auth.verifyToken, orderRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

@@ -1,5 +1,5 @@
 // Import the Order model
-const Order = require('../models/Order');
+const Order = require('../models/order.model.js');
 
 // Controller functions for order-related actions
 exports.createOrder = async (req, res) => {

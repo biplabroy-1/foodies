@@ -1,5 +1,5 @@
 // Import the Restaurant model
-const Restaurant = require('../models/Restaurant');
+const Restaurant = require('../models/restaurant.model.js');
 
 // Controller functions for restaurant-related actions
 exports.createRestaurant = async (req, res) => {
