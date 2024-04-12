@@ -4,7 +4,6 @@ const auth = require('./config/auth');
 const userRoutes = require('./routes/userRoutes');
 const restaurantRoutes = require('./routes/restaurantRoutes');
 const orderRoutes = require('./routes/orderRoutes');
-const User = require('../models/user.models.js');
 
 require('dotenv').config();
 
@@ -14,11 +13,7 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB database
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-})
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
     console.log('Connected to MongoDB');
 })
@@ -28,9 +23,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 // Routes
-// app.use('/api/users', userRoutes);
-// app.use('/api/restaurants', auth.verifyToken, restaurantRoutes);
-// app.use('/api/orders', auth.verifyToken, orderRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/restaurants', auth.verifyToken, restaurantRoutes);
+app.use('/api/orders', auth.verifyToken, orderRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
