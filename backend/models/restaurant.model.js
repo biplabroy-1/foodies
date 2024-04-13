@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import { Schema, model } from "mongoose";
 
 // Define the schema for the Restaurant model
-const restaurantSchema = new mongoose.Schema({
+const restaurantSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -14,4 +14,4 @@ const restaurantSchema = new mongoose.Schema({
 });
 
 // Create and export the Restaurant model
-module.exports = mongoose.model('Restaurant', restaurantSchema);
+export const Restaurant = model('Restaurant', restaurantSchema);

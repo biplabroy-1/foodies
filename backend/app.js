@@ -1,11 +1,11 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const auth = require('./config/auth');
-const userRoutes = require('./routes/userRoutes');
-const restaurantRoutes = require('./routes/restaurantRoutes');
-const orderRoutes = require('./routes/orderRoutes');
+import express from 'express';
+// const auth = require('./config/auth');
+// const userRoutes = require('./routes/userRoutes');
+// const restaurantRoutes = require('./routes/restaurantRoutes');
+// const orderRoutes = require('./routes/orderRoutes');
+import dbConnect from './config/database.js';
 
-require('dotenv').config();
+
 
 const app = express();
 
@@ -13,19 +13,29 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB database
-mongoose.connect(process.env.MONGODB_URI)
-.then(() => {
-    console.log('Connected to MongoDB');
-})
-.catch((err) => {
-    console.error('Error connecting to MongoDB:', err.message);
-    process.exit(1);
-});
+// mongoose.connect(process.env.MONGODB_URI)
+// .then(() => {
+//     console.log('Connected to MongoDB');
+// })
+// .catch((err) => {
+//     console.error('Error connecting to MongoDB:', err.message);
+//     process.exit(1);
+// });
+
+dbConnect.then(
+    ()=>{
+        console.log("bencho ho gaya DB or teri biwi se connection")
+    })
+    .catch((err)=>{
+        console.error('Error connecting to MongoDB:', err.message);
+        process.exit(1);
+    })
+
 
 // Routes
-app.use('/api/users', userRoutes);
-app.use('/api/restaurants', auth.verifyToken, restaurantRoutes);
-app.use('/api/orders', auth.verifyToken, orderRoutes);
+// app.use('/api/users', userRoutes);
+// app.use('/api/restaurants', auth.verifyToken, restaurantRoutes);
+// app.use('/api/orders', auth.verifyToken, orderRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

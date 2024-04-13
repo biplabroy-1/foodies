@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 // JWT secret key (replace this with your own secret)
-const JWT_SECRET = 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware to verify JWT token
 exports.verifyToken = (req, res, next) => {

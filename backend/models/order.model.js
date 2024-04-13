@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+import { Schema, model } from "mongoose";
 
 // Define the schema for the Order model
-const orderSchema = new mongoose.Schema({
+const orderSchema = new Schema({
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
     restaurant: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Restaurant',
         required: true
     },
@@ -25,4 +25,4 @@ const orderSchema = new mongoose.Schema({
 });
 
 // Create and export the Order model
-module.exports = mongoose.model('Order', orderSchema);
+export const Order = model('Order', orderSchema);
