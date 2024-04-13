@@ -10,4 +10,4 @@ const catagorySchema = new Schema({
 })
 
 
-export const Catagory = model('Catagory',catagorySchema)
+export default model('Catagory',catagorySchema)

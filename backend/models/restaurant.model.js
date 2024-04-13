@@ -14,4 +14,4 @@ const restaurantSchema = new Schema({
 });
 
 // Create and export the Restaurant model
-export const Restaurant = model('Restaurant', restaurantSchema);
+export default model('Restaurant', restaurantSchema);

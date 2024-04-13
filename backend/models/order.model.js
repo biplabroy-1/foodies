@@ -25,4 +25,4 @@ const orderSchema = new Schema({
 });
 
 // Create and export the Order model
-export const Order = model('Order', orderSchema);
+export default model('Order', orderSchema);
